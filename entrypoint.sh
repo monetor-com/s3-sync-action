@@ -39,7 +39,7 @@ EOF
 
 # Default to us-east-1 if AWS_REGION not set.
 if [ -z "$AWS_ASSUME_ROLE" ]; then
-  aws configure set role_arn $AWS_ASSUME_ROLE --profile s3-sync-action
+  AWS_ROLE_ARN=$AWS_ASSUME_ROLE
 fi
 
 # Sync using our dedicated profile and suppress verbose messages.
