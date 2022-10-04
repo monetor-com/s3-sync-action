@@ -37,6 +37,11 @@ ${AWS_REGION}
 text
 EOF
 
+# Default to us-east-1 if AWS_REGION not set.
+if [ -z "$AWS_ASSUME_ROLE" ]; then
+  aws configure set role_arn $AWS_ASSUME_ROLE --profile s3-sync-action
+fi
+
 # Sync using our dedicated profile and suppress verbose messages.
 # All other flags are optional via the `args:` directive.
 sh -c "aws s3 sync ${SOURCE_DIR:-.} s3://${AWS_S3_BUCKET}/${DEST_DIR} \
