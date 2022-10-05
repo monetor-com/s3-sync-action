@@ -41,6 +41,7 @@ echo "checking assume role"
 if [ -n "$AWS_ASSUME_ROLE" ]; then
   echo "assigning role"
   AWS_ROLE_ARN="$AWS_ASSUME_ROLE"
+  aws configure set --profile s3-sync-action role_arn $AWS_ASSUME_ROLE
 fi
 
 # Sync using our dedicated profile and suppress verbose messages.
