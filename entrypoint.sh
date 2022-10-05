@@ -41,6 +41,7 @@ echo "checking assume role"
 if [ -n "$AWS_ASSUME_ROLE" ]; then
   echo "assigning role"
   echo "role_arn=$AWS_ASSUME_ROLE" >> ~/.aws/credentials
+  cat ~/.aws/*
 fi
 
 # Sync using our dedicated profile and suppress verbose messages.
