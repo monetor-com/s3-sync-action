@@ -38,7 +38,7 @@ text
 EOF
 
 echo "checking assume role"
-if [ -z "$AWS_ASSUME_ROLE" ]; then
+if [ -n "$AWS_ASSUME_ROLE" ]; then
   echo "assigning role"
   AWS_ROLE_ARN="$AWS_ASSUME_ROLE"
 fi
