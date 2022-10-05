@@ -37,7 +37,7 @@ ${AWS_REGION}
 text
 EOF
 
-# Default to us-east-1 if AWS_REGION not set.
+echo "checking assume role"
 if [ -z "$AWS_ASSUME_ROLE" ]; then
   echo "assigning role"
   AWS_ROLE_ARN="$AWS_ASSUME_ROLE"
